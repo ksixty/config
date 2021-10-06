@@ -17,3 +17,7 @@ Minimal configuration. Tells =sshd= to store keys in macOS Keychain and loads a 
 Basic SBCL config for loading [[Quicklisp][https://quicklisp.org/beta]] (you have to install it manually).
 
 TODO: add Sly initialization to fix broken terminal I/O.
+
+** TODO Python
+
+When I do Python, I use =pyenv=.
