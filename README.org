@@ -1,18 +1,18 @@
 #+TITLE: Personal configuration
 
-* Vim
+** Vim
 
 I use vim as a fast fallback for quick edits as my fingers are used to it. This is a minimal configuration for supporting cyrillic keyboard layout, tabs, syntax etc. I use this exact =.vimrc= since 2017 with no changes.
 
-* Emacs
+** Emacs
 
 This is my fourth attempt at configuring the beast. Everything happens inside =k60= dir. Config is kinda modular and is split by topics. Packages are loaded with the =use-package= macro to maintain portability.
 
-* SSH
+** SSH
 
 Minimal configuration. Tells =sshd= to store keys in macOS Keychain and loads a private file with aliases and logins.
 
-* Common Lisp
+** Common Lisp
 
 Basic SBCL config for loading [[Quicklisp][https://quicklisp.org/beta]] (you have to install it manually).
 
