@@ -1,4 +1,5 @@
 ;;; misc
+(savehist-mode +1)
 
 ;; tabs no more
 (setq-default tab-width 4 indent-tabs-mode nil)
@@ -13,8 +14,7 @@
 (setq create-lockfiles nil)
 (global-auto-revert-mode t)
 
-
-
+;; snippets
 (use-package yasnippet
   :diminish yas-minor-mode
   :config

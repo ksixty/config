@@ -3,21 +3,23 @@
 ;; scratch
 (setq inhibit-startup-screen t
       inhibit-startup-message t
+      inhibit-startup-echo-area-message t
       initial-scratch-message "#+title: scratch\n\n"
       initial-major-mode 'org-mode)
 
 ;; colors and fonts
-(set-frame-font (font-spec :family "Iosevka" :size 14) nil t t)
+(set-frame-font (font-spec :family "Iosevka" :size 14) t t nil)
 
 (use-package modus-themes
-  :config (setq modus-themes-mode-line '(3d accented)
-                modus-themes-syntax    '(yellow-comments green-strings)
+  :init (setq modus-themes-mode-line '(3d accented)
+                modus-themes-syntax    '(yellow-comments)
                 modus-themes-completions 'moderate
                 modus-themes-intense-markup t
                 modus-themes-italic-constructs t
                 modus-themes-bold-constructs t
-                modus-themes-org-blocks 'tinted-background)
-  :init (modus-themes-load-operandi))
+                modus-themes-org-blocks 'gray-background
+                modus-themes-vivendi-color-overrides '((bg-main . "#111")))
+  :config (modus-themes-load-vivendi))
 
 (setq scroll-margin 0
       scroll-conservatively 100000
@@ -39,7 +41,7 @@
 (size-indication-mode 1)
 (use-package diminish
   :config
-  (mapc #'diminish (list eldoc-mode)))
+  (mapc #'diminish (list 'eldoc-mode)))
 
 ;; title
 (setq frame-title-format "%b")
