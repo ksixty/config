@@ -21,4 +21,9 @@
   :bind (:map sly-mode-map
               ("C-c b" . sly-eval-buffer)))
 
+(use-package php-mode)
+
 (use-package go-mode)
+
+(use-package parinfer-rust-mode
+  :hook (lisp-mode . parinfer-rust-mode))
