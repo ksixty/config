@@ -1,4 +1,5 @@
 ;;; look and feel
+(setq ring-bell-function nil)
 
 ;; scratch
 (setq inhibit-startup-screen t
@@ -11,14 +12,16 @@
 (set-frame-font (font-spec :family "Iosevka" :size 14) t t nil)
 
 (use-package modus-themes
-  :init (setq modus-themes-mode-line '(3d accented)
-                modus-themes-syntax    '(yellow-comments)
-                modus-themes-completions 'moderate
-                modus-themes-intense-markup t
-                modus-themes-italic-constructs t
-                modus-themes-bold-constructs t
-                modus-themes-org-blocks 'gray-background
-                modus-themes-vivendi-color-overrides '((bg-main . "#111")))
+  :init (setq modus-themes-mode-line               '(3d)
+              modus-themes-syntax                  '(yellow-comments)
+              modus-themes-completions             'moderate
+              modus-themes-intense-markup          t
+              modus-themes-italic-constructs       t
+              modus-themes-bold-constructs         t
+              modus-themes-org-blocks              'gray-background
+              modus-themes-vivendi-color-overrides '((bg-main . "#1a1a1a")
+                                                     (fg-main . "#cccccc")))
+
   :config (modus-themes-load-vivendi))
 
 (setq scroll-margin 0
