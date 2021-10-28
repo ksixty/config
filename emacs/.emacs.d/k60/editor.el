@@ -1,5 +1,9 @@
 ;;; misc
 (savehist-mode +1)
+(recentf-mode +1)
+(setq recentf-max-menu-items 200)
+
+(global-visual-line-mode 1)
 
 ;; tabs no more
 (setq-default tab-width 4 indent-tabs-mode nil)
@@ -41,3 +45,11 @@
    ("C-c p s" . projectile-save-project-buffers))
   :config
   (projectile-mode +1))
+
+;; kill-ring / system clipboard interaction
+
+(setq select-enable-clipboard t
+      save-interprogram-paste-before-kill t
+      yank-pop-change-selection t)
+
+(require 'trip-mode)
