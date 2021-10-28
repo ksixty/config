@@ -28,11 +28,5 @@
 ;; cyrillic
 (use-package reverse-im
   :ensure t
-  :demand t
-  :after char-fold
-  :custom
-  (reverse-im-char-fold t)
-  (reverse-im-read-char-advice-function #'reverse-im-read-char-exclude)
-  (reverse-im-input-methods '("russian-computer"))
   :config
-  (reverse-im-mode t))
+  (reverse-im-activate "russian-computer"))

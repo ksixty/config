@@ -23,7 +23,28 @@
 
 (use-package php-mode)
 
+(add-to-list 'load-path "~/.emacs.d/site-lisp/pyenv.el")
+(require 'pyenv)
+(global-pyenv-mode)
+
 (use-package go-mode)
 
 (use-package parinfer-rust-mode
   :hook (lisp-mode . parinfer-rust-mode))
+
+;; c-mode
+(setq c-default-style "linux")
+
+;; godbolt-like asm explorer
+(use-package rmsbolt)
+
+(use-package nix-mode)
+
+(use-package restclient)
+(use-package ob-restclient
+  :init
+  (org-babel-do-load-languages 'org-babel-load-languages
+                               '((restclient . t))))
+
+(use-package dockerfile-mode)
+(use-package docker-compose-mode)
