@@ -15,7 +15,7 @@
                 t t nil)
 
 ;; theme
-(defvar k60/modus-p nil)
+(defvar k60/modus-p t)
 
 (use-package modus-themes
   :init (setq modus-themes-variable-pitch-headings nil
