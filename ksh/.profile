@@ -1,5 +1,5 @@
 HISTFILE=$HOME/.history
-HISTSIZE=10000
+HISTSIZE=100000
 
 if [ -z "$PWD" ]; then
 	PWD=$HOME
@@ -26,3 +26,5 @@ export ENV=$HOME/.kshrc
 
 export PATH
 if [ -e /Users/admin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/admin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
