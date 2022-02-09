@@ -2,7 +2,7 @@ HISTFILE=$HOME/.history
 HISTSIZE=100000
 
 if [ -z "$PWD" ]; then
-	PWD=$HOME
+    PWD=$HOME
     export PWD
 fi
 
