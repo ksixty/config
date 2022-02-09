@@ -1,5 +1,6 @@
 ;;; look and feel
 (setq ring-bell-function nil)
+(global-hl-line-mode 1)
 
 ;; scratch
 (setq inhibit-startup-screen t
@@ -9,10 +10,16 @@
       initial-major-mode 'org-mode)
 
 ;; colors and fonts
-(set-frame-font (font-spec :family "Iosevka" :size 14) t t nil)
+(set-frame-font (font-spec :family "Iosevka SS11"
+                           :size 13)
+                t t nil)
+
+;; theme
+(defvar k60/modus-p nil)
 
 (use-package modus-themes
-  :init (setq modus-themes-mode-line               '(3d)
+  :init (setq modus-themes-variable-pitch-headings nil
+              modus-themes-mode-line               '(3d)
               modus-themes-syntax                  '(yellow-comments)
               modus-themes-completions             'moderate
               modus-themes-intense-markup          t
@@ -21,8 +28,11 @@
               modus-themes-org-blocks              'gray-background
               modus-themes-vivendi-color-overrides '((bg-main . "#1a1a1a")
                                                      (fg-main . "#cccccc")))
+  :config (when k60/modus-p (modus-themes-load-operandi)))
 
-  :config (modus-themes-load-vivendi))
+(unless k60/modus-p
+  (load-theme 'shades-of-purple)
+  (set-face-foreground 'vertical-border "#223"))
 
 (setq scroll-margin 0
       scroll-conservatively 100000
@@ -31,9 +41,6 @@
 (show-paren-mode 1)
 
 ;; hide useless stuff
-(if (bound-and-true-p mac-option-modifier) (menu-bar-mode 1)
-  (menu-bar-mode -1))
-
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (fringe-mode -1)
