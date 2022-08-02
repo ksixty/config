@@ -7,10 +7,10 @@
 (use-package org
   :init
   (require 'org-tempo)
-  (add-hook 'org-mode-hook 'org-indent-mode)
   :bind ("C-c o" . browse-notes)
   :config
   (require 'ox-latex)
+  (require 'ox-publish)
   (setq org-latex-packages-alist nil)
   (setq org-directory "~/org"
         org-agenda-files (list "~/org")
@@ -27,7 +27,25 @@
         org-latex-pdf-process
           '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
             "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")))
+            "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f")
+        org-publish-project-alist
+          '(("www-text"
+            :base-directory "~/www/"
+            :base-extension "org"
+            :recurse t
+            :language "ru"
+            :auto-sitemap t
+            :sitemap-filename "sitemap.org"
+            :sitemap-title "Карта"
+            :publishing-function org-html-publish-to-html
+            :publishing-directory "/ssh:k60.in:/srv/www/org-demo")
+            ("www-static"
+             :base-directory "~/www/"
+             :base-extension "css\\|js\\|png\\|jpg\\|gif\\|lisp\\|hs\\|svg\\|pdf\\|mp3\\|ogg"
+             :recursive t
+             :publishing-function org-publish-attachment
+             :publishing-directory "/ssh:k60.in:/srv/www/org-demo")
+            ("www" :components ("www-text" "www-static")))))
 
 ;; (use-package org-tree-slide
 ;;   :bind (:map org-mode-map

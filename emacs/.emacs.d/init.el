@@ -14,6 +14,7 @@
 
 (setq custom-file "~/.emacs.d/custom.el")
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 
 (setq package-enable-at-startup nil)
 (require 'package)
@@ -33,6 +34,8 @@
 
 (setq use-package-always-ensure t)
 
+(savehist-mode +1)
+
 (setq load-prefer-newer t)
-(byte-recompile-directory "~/.emacs.d/k60")
 (mapc 'load (file-expand-wildcards "~/.emacs.d/k60/*.el"))
+(exit)

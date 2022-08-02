@@ -18,7 +18,14 @@
         ("C-j" . join-line)
         ("C-x g" . magit-status)
         ("C-c a" . org-agenda)
-        ("C-c RET" . shell)))
+        ("C-c e" . eshell-here)
+        ("<f6>" . compile)
+        ("C-x m" . mu4e-compose-new)
+        ("<f5>" . recompile)
+        ("C->" . indent-rigidly-right-to-tab-stop)
+        ("C-<" . indent-rigidly-left-to-tab-stop)
+        ("M-[" . backward-paragraph)
+        ("M-]" . forward-paragraph)))
 
 ;; little helpers
 (use-package crux
@@ -30,38 +37,6 @@
 (use-package expand-region
   :ensure t
   :bind ("C-=" . er/expand-region))
-
-(use-package evil
-  :init
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode -1))
-
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
-(use-package general
-  :ensure t
-  :init
-  (setq general-override-states '(insert
-                                  emacs
-                                  hybrid
-                                  normal
-                                  visual
-                                  motion
-                                  operator
-                                  replace))
-  :config
-  (general-define-key
-   :states '(normal visual motion)
-   :keymaps 'override
-   "SPC" 'hydra-space/body))
-
-(use-package hydra)
 
 ;; cyrillic
 (use-package reverse-im
