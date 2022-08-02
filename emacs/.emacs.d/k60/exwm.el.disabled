@@ -1,0 +1,56 @@
+(require 'exwm-randr)
+
+(use-package exwm
+  :ensure t)
+(require 'exwm-randr)
+(require 'exwm-config)
+(exwm-config-example)
+"Default configuration of EXWM."
+;; Set the initial workspace number.
+(unless (get 'exwm-workspace-number 'saved-value) (setq exwm-workspace-number 0))
+;; Make class name the buffer name
+(add-hook 'exwm-update-class-hook
+          (lambda ()
+            (exwm-workspace-rename-buffer exwm-class-name)))
+;; Global keybindings.
+(let ((workspaces (cl-mapcar #'list (number-sequence 0 110 5)
+                             '("`" "<escape>" "1" "<f1>" "2" "<f2>" "3" "<f3>" "4" "<f4>" "5" "<f5>" "6" "<f6>"
+                               "7" "<f7>" "8" "<f8>" "9" "<f9>" "0" "<f10>"))))
+  (unless (get 'exwm-input-global-keys 'saved-value)
+    (setq exwm-input-global-keys
+          `(
+            ;; 's-r': Reset (to line-mode).
+            ([?\s-r] . exwm-reset)
+            ;; 's-w': Switch workspace.
+            ([?\s-w] . exwm-workspace-switch)
+            ;; 's-&': Launch application.
+            ([?\s-&] . (lambda (command)
+                         (interactive (list (read-shell-command "§ ")))
+                         (start-process-shell-command command nil command)))
+            ;; 's-N': Switch to certain workspace.
+            ,@(mapcar (lambda (i)
+                        `(,(kbd (format "s-%s" (cl-second i))) .
+                          (lambda ()
+                            (interactive)
+                            (exwm-workspace-switch-create ,(cl-first i)))))
+                      workspaces)))))
+
+;; Line-editing shortcuts
+(unless (get 'exwm-input-simulation-keys 'saved-value)
+  (setq exwm-input-simulation-keys
+        '(([?\C-b] . [left])
+          ([?\C-f] . [right])
+          ([?\C-p] . [up])
+          ([?\C-n] . [down])
+          ([?\C-a] . [home])
+          ([?\C-e] . [end])
+          ([?\M-v] . [prior])
+          ([?\C-v] . [next])
+          ([?\C-d] . [delete])
+          ([?\C-k] . [S-end delete]))))
+(exwm-config-misc)
+
+(use-package windower
+  :ensure t)
+(require 'browse-url)
+(require 'exwm-manage)
