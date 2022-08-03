@@ -7,6 +7,9 @@
     mac-option-modifier nil
     mac-right-option-modifier 'meta))
 
+;; enable windmove
+(windmove-default-keybindings)
+
 (global-set-key (kbd "<mouse-2>") (lambda () (interactive)
                                     (mouse-set-point last-input-event)
                                     (yank)))
