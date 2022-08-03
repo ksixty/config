@@ -16,19 +16,20 @@
 
 ;; bindings list
 (mapc (lambda (x) (global-set-key (kbd (car x)) (cdr x)))
-      '(("C-z" . undo)
-        ("M-z" . zap-up-to-char)
-        ("C-j" . join-line)
+      '(("C-z"   . undo)
+        ("M-z"   . zap-up-to-char)
+        ("C-j"   . join-line)
         ("C-x g" . magit-status)
         ("C-c a" . org-agenda)
         ("C-c e" . eshell-here)
-        ("<f6>" . compile)
+        ("<f6>"  . compile)
         ("C-x m" . mu4e-compose-new)
-        ("<f5>" . recompile)
-        ("C->" . indent-rigidly-right-to-tab-stop)
-        ("C-<" . indent-rigidly-left-to-tab-stop)
-        ("M-[" . backward-paragraph)
-        ("M-]" . forward-paragraph)))
+        ("<f5>"  . recompile)
+        ("C->"   . indent-rigidly-right-to-tab-stop)
+        ("C-<"   . indent-rigidly-left-to-tab-stop)
+        ("M-["   . backward-paragraph)
+        ("M-]"   . forward-paragraph)
+        ("M-x"   . helm-M-x)))
 
 ;; little helpers
 (use-package crux
