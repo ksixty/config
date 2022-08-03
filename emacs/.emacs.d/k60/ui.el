@@ -3,7 +3,7 @@
 (global-hl-line-mode 1)
 ;;(global-font-lock-mode 1)
 
-(setq cursor-type '(bar . 1))
+(progn (setq cursor-type '(bar . 1)))
 
 ;; scratch
 (setq inhibit-startup-screen t
@@ -12,8 +12,7 @@
       initial-scratch-message "; scratch"
       initial-major-mode 'emacs-lisp-mode)
 
-(set-face-attribute 'default nil :height 92 :family "cascadia mono" :weight 'normal)
-(frame-parameter (selected-frame) 'font-backend)
+(set-face-attribute 'default nil :height 102 :family "cascadia mono" :weight 'normal)
 
 (set-fontset-font t 'symbol (font-spec :family "Symbola") nil 'append)
 (set-fontset-font t 'symbol (font-spec :family "Noto Sans Mono") nil 'prepend)
