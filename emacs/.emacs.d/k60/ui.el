@@ -13,11 +13,11 @@
       initial-major-mode 'emacs-lisp-mode)
 
 (set-face-attribute 'default nil :height 102 :family "cascadia mono" :weight 'normal)
-
 (set-fontset-font t 'symbol (font-spec :family "Symbola") nil 'append)
 (set-fontset-font t 'symbol (font-spec :family "Noto Sans Mono") nil 'prepend)
+(global-prettify-symbols-mode t)
 
-(use-package quick-peek)
+(use-package quick-peek) ;; inline pop-ups ala vscode
 ;; theme
 ;; (use-package modus-themes
 ;;   :bind ("<f12>" . modus-themes-toggle)
@@ -61,10 +61,11 @@
 ;; modeline
 (line-number-mode 1)
 (column-number-mode 1)
-(size-indication-mode 1)
+(size-indication-mode -1)
+(vc-mode-line 1)
 (use-package diminish
   :config
-  (mapc #'diminish (list 'eldoc-mode 'visual-line-mode 'wrap 'undo-tree)))
+  (mapc #'diminish (list 'eldoc-mode 'visual-line-mode 'wrap 'undo-tree-mode)))
 
 ;; title
 (setq frame-title-format "%b — Emacs")
@@ -98,10 +99,10 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
-(use-package marginalia
-  :init
-  (marginalia-mode)
-  (setq marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light)))
+;; (use-package marginalia
+;;   :init
+;;   (marginalia-mode)
+;;   (setq marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light)))
 
 ;; prescient
 
@@ -114,20 +115,3 @@
 (use-package which-key
   :diminish which-key-mode
   :config (which-key-mode +1))
-
-(use-package ligature
-  :load-path "~/.emacs.d/site-lisp/ligature.el"
-  :config
-  (ligature-set-ligatures 't '("{-" "::"
-                               ":::" ":="
-                               "#{" "#[" "##" "###" "####" "#(" "#?" "#_"
-                               "#_(" ".-" ".=" ".." "..<" "..." "/*" "/**"
-                               "//" "///" "&&" "||" "||=" "|=" "^="
-                               "++" "+++" "~~" "%%"))
-
-  ;; Enables ligature checks globally in all buffers. You can also do it
-  ;; per mode with `ligature-mode'.
-  (global-ligature-mode -1)
-  (global-prettify-symbols-mode t))
-
-(global-prettify-symbols-mode t)
