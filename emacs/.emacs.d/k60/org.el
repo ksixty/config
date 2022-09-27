@@ -13,6 +13,7 @@
   (require 'ox-publish)
   (setq org-latex-packages-alist nil)
   (setq org-directory "~/org"
+        org-indent-mode t
         org-agenda-files (list "~/org")
         org-image-actual-width nil
         org-image-actual-width 700

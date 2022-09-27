@@ -72,7 +72,7 @@
 (use-package sly
   :commands sly
   :defer t
-  :config (progn (setq inferior-lisp-program "/usr/bin/sbcl")
+  :config (progn (setq inferior-lisp-program "/usr/bin/clisp")
                  (setq sly-contribs '(sly-scratch sly-mrepl sly-stickers))
                  (sly-setup)
                  (load (expand-file-name "~/.roswell/helper.el")))
@@ -93,9 +93,13 @@
   :defer t
   :commands go-mode)
 
-(use-package parinfer-rust-mode
-  :init (setq parinfer-rust-dim-parens nil)
-  :hook (lisp-mode . parinfer-rust-mode))
+(use-package paredit
+  :defer t
+  :hook (lisp-mode . paredit-mode))
+
+;; (use-package parinfer-rust-mode
+;;   :init (setq parinfer-rust-dim-parens nil)
+;;   :hook (lisp-mode . parinfer-rust-mode))
 
 
 ;; c-mode

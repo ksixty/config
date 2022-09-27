@@ -13,6 +13,8 @@
   :defer t
   :config (setq telega-emoji-use-images nil ;; pre-rendered emoji
                 telega-use-images t
+                telega-chat-show-avatars t
+                telega-chat-fill-column 60
                 telega-symbol-checkmark "•"
                 telega-symbol-heavy-checkmark " "
                 telega-chat-input-markups '("markdown2" nil)
@@ -108,13 +110,13 @@
       :vars '((mu4e-trash-folder . "/fmap/Trash")
               (mu4e-refile-folder . "/fmap/Archive")))))
 
-(use-package mu4e-alert
-  :ensure t
-  :after mu4e
-  :init
-  (setq mu4e-alert-interesting-mail-query "flag:unread")
-  (mu4e-alert-enable-mode-line-display)
-  (mu4e-alert-enable-notifications))
+;; (use-package mu4e-alert
+;;   :ensure t
+;;   :after mu4e
+;;   :init
+;;   (setq mu4e-alert-interesting-mail-query "flag:unread")
+;;   (mu4e-alert-enable-mode-line-display)
+;;   (mu4e-alert-enable-notifications))
 
 ;; aviod trashing when deleting
 (defun remove-nth-element (nth list)
@@ -171,6 +173,10 @@
   (interactive)
   (browse-files-by-wildcard "~/.emacs.d/k60/*.el"))
 
-(use-package nnreddit
-  :defer t
-  :config (custom-set-variables '(gnus-select-method (quote (nnreddit "")))))
+;; (use-package nnreddit
+;;   :defer t
+;;   :config (custom-set-variables '(gnus-select-method (quote (nnreddit "")))))
+
+(use-package system-packages
+  :config (setq system-packages-package-manager 'pacman
+                system-packages-use-sudo t))

@@ -38,4 +38,3 @@
 
 (setq load-prefer-newer t)
 (mapc 'load (file-expand-wildcards "~/.emacs.d/k60/*.el"))
-(exit)

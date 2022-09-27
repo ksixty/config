@@ -1,0 +1,3 @@
+[submodule "emacs/.emacs.d/site-lisp/ligature.el"]
+	path = emacs/.emacs.d/site-lisp/ligature.el
+	url = git@github.com:mickeynp/ligature.el.git

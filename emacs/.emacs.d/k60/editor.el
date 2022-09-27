@@ -4,6 +4,7 @@
 
 (recentf-mode +1)
 (setq recentf-max-menu-items 9000)
+(setq-default recent-save-file "~/.emacs.d/recentf")
 
 (global-visual-line-mode 1)
 
@@ -57,3 +58,8 @@
       yank-pop-change-selection t)
 
 ;; (require 'trip-mode)
+;; add blank comment
+
+;; yasnippet snippets for go
+;; git clone https://github.com/dominikh/yasnippet-go
+(add-to-list 'yas-snippet-dirs "/home/k60/.emacs.d/yasnippet-go/go-mode")
