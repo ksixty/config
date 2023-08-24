@@ -19,8 +19,13 @@ export MOZ_ENABLE_WAYLAND=1
 export DATE=`date +%F`
 
 PATH="$PATH:/home/k60/.roswell/bin/"
+PATH="$PATH:/home/k60/.cargo/bin/"
+PATH="$PATH:/home/k60/.local/lib/python3.10"
+PATH="$PATH:/home/k60/.local/bin/"
 
 
 alias emc="$EDITOR"
 alias sys="systemctl"
 alias sus="systemctl --user"
+
+source /etc/profile.d/emscripten.sh

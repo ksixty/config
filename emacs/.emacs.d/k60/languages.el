@@ -54,9 +54,9 @@
   (when buffer-file-name
     (setq-local buffer-save-without-query t)))
 
-(use-package elpy
-  :ensure t
-  :init (elpy-enable))
+;; (use-package elpy
+;;   :ensure t
+;;   :init (elpy-enable))
 
 (use-package flycheck-inline
   :hook (flycheck-mode . flycheck-inline-mode))
@@ -72,15 +72,15 @@
 (use-package sly
   :commands sly
   :defer t
-  :config (progn (setq inferior-lisp-program "/usr/bin/clisp")
+  :config (progn (setq inferior-lisp-program "ros -Q run")
                  (setq sly-contribs '(sly-scratch sly-mrepl sly-stickers))
                  (sly-setup)
                  (load (expand-file-name "~/.roswell/helper.el")))
   :bind (:map sly-mode-map
               ("C-c b" . sly-eval-buffer)))
 
-(use-package sly-quicklisp)
-(use-package sly-macrostep)
+; (use-package sly-quicklisp)
+;(use-package sly-macrostep)
 
 (use-package php-mode
   :commands php-mode
@@ -122,6 +122,7 @@
 (use-package dockerfile-mode)
 (use-package docker-compose-mode)
 
+(use-package ess)
 
 (add-hook 'lisp-mode-hook
           (lambda ()

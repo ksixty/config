@@ -14,7 +14,7 @@
   :config (setq telega-emoji-use-images nil ;; pre-rendered emoji
                 telega-use-images t
                 telega-chat-show-avatars t
-                telega-chat-fill-column 60
+                telega-chat-fill-column 70
                 telega-symbol-checkmark "•"
                 telega-symbol-heavy-checkmark " "
                 telega-chat-input-markups '("markdown2" nil)
@@ -180,3 +180,6 @@
 (use-package system-packages
   :config (setq system-packages-package-manager 'pacman
                 system-packages-use-sudo t))
+
+(use-package mpdel
+  :config (setq libmpdel-hostname "monolit.local"))

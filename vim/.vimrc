@@ -19,4 +19,6 @@ set hlsearch
 set incsearch 
 set lmap=ёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 syntax on
-" set bg=dark
+set bg=dark
+syntax off
+set mouse= " disable mouse!

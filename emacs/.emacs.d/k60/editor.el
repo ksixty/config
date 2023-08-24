@@ -29,6 +29,9 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(persistent-scratch-setup-default)
+(persistent-scratch-autosave-mode 1)
+
 (setq create-lockfiles nil)
 (global-auto-revert-mode t)
 
@@ -44,6 +47,12 @@
   :diminish yas-minor-mode
   :config
   (yas-global-mode 1))
+
+;; flycheck
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
 
 (use-package helm)
 
@@ -62,4 +71,4 @@
 
 ;; yasnippet snippets for go
 ;; git clone https://github.com/dominikh/yasnippet-go
-(add-to-list 'yas-snippet-dirs "/home/k60/.emacs.d/yasnippet-go/go-mode")
+;;(add-to-list 'yas-snippet-dirs "/home/k60/.emacs.d/yasnippet-go/go-mode")

@@ -15,17 +15,19 @@ compinit -i
 
 PS1="%1~ § "
 # PS1=">: "
+DISABLE_AUTO_TITLE="false"
 
 function xtitle () {
     builtin print -n -- "\e]0;$@\a"
 }
 function precmd () {
-    # xtitle "$(print -P $USER@$HOST: '%~')"
+    xtitle "$(print -P $USER@$HOST: '%~')"
 }
 function preexec () {
-    # xtitle "$1 — $(print -P $USER@$HOST: '%~')"
+    xtitle "$1 — $(print -P $USER@$HOST: '%~')"
 }
 
 alias yota='sudo sysctl net.ipv4.ip_default_ttl=65'
 alias xkpasswd='hsxkpasswd -p xkcd'
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
